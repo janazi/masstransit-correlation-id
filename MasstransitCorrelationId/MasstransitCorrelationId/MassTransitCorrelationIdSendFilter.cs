@@ -5,29 +5,29 @@ using Microsoft.Extensions.Primitives;
 using System;
 using System.Threading.Tasks;
 
-namespace NeonModelo.Api.Middlewares
+namespace MasstransitCorrelationId
 {
     public class MassTransitCorrelationIdSendFilter<T> : IFilter<SendContext<T>> where T : class
     {
-        private const string CORRELATION_TOKEN_HEADER = "x-correlation-id";
-        private readonly IHttpContextAccessor httpContextAccessor;
+        private const string CorrelationTokenHeader = "x-correlation-id";
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         public MassTransitCorrelationIdSendFilter(IHttpContextAccessor httpContextAccessor)
         {
-            this.httpContextAccessor = httpContextAccessor;
+            this._httpContextAccessor = httpContextAccessor;
         }
         public void Probe(ProbeContext context) { }
 
         public async Task Send(SendContext<T> context, IPipe<SendContext<T>> next)
         {
-            if (!(!StringValues.IsNullOrEmpty(httpContextAccessor.HttpContext.Request.Headers[CORRELATION_TOKEN_HEADER])
-                && Guid.TryParse(httpContextAccessor.HttpContext.Request.Headers[CORRELATION_TOKEN_HEADER], out Guid correlationId)))
+            if (!(!StringValues.IsNullOrEmpty(_httpContextAccessor.HttpContext.Request.Headers[CorrelationTokenHeader])
+                && Guid.TryParse(_httpContextAccessor.HttpContext.Request.Headers[CorrelationTokenHeader], out Guid correlationId)))
             {
                 correlationId = Guid.NewGuid();
             }
 
             context.ConversationId = correlationId;
-            context.Headers.Set(CORRELATION_TOKEN_HEADER, correlationId);
+            context.Headers.Set(CorrelationTokenHeader, correlationId);
 
             await next.Send(context);
         }
