@@ -1,7 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <PackageId>Masstransit.CorrelationIdMiddleware</PackageId>
+    <Version>1.0.0.1</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Authors>Janazi</Authors>
+    <Company>WePets</Company>
+    <PackageDescription>Add an x-correlation-id from Request Headers (or generate) to Masstransit messages</PackageDescription>
+    <RepositoryUrl>https://github.com/janazi/masstransit-correlation-id</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(Configuration) == 'Debug'">
+    <BumpLabel>dev</BumpLabel>
+    <BumpLabelDigits>4</BumpLabelDigits>
   </PropertyGroup>
 
   <ItemGroup>
