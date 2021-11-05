@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <PackageId>Masstransit.CorrelationIdMiddleware</PackageId>
-    <Version>1.0.0.1</Version>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <PackageId>Jnz.Masstransit.CorrelationIdFilter</PackageId>
+    <Version>1.0.0.2</Version>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
     <Authors>Janazi</Authors>
-    <Company>WePets</Company>
+    <Company>WebResource</Company>
     <PackageDescription>Add an x-correlation-id from Request Headers (or generate) to Masstransit messages</PackageDescription>
     <RepositoryUrl>https://github.com/janazi/masstransit-correlation-id</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -26,7 +26,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="MassTransit" Version="7.2.0" />
+    <PackageReference Include="MassTransit" Version="7.2.4" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
   </ItemGroup>
 

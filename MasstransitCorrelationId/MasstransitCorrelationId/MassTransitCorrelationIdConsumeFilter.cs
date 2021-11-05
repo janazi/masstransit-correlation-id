@@ -14,7 +14,7 @@ namespace MasstransitCorrelationId
 
         public MassTransitCorrelationIdConsumeFilter(IHttpContextAccessor httpContextAccessor)
         {
-            this._httpContextAccessor = httpContextAccessor;
+            _httpContextAccessor = httpContextAccessor;
         }
         public void Probe(ProbeContext context) { }
 
