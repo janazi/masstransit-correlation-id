@@ -16,10 +16,6 @@
     <BumpLabel>dev</BumpLabel>
     <BumpLabelDigits>4</BumpLabelDigits>
   </PropertyGroup>
-  <PropertyGroup Condition="$(Configuration) == 'Release'">
-    <BumpRevision>True</BumpRevision>
-    <BumpResetLabel>dev</BumpResetLabel>
-  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Ivy.Versioning" Version="3.1.0">
@@ -28,6 +24,8 @@
     </PackageReference>
     <PackageReference Include="MassTransit" Version="7.2.4" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
   </ItemGroup>
 
 </Project>
